@@ -1,0 +1,41 @@
+h1 {
+    width: 100%;
+    height: 200px;
+    top: 44px;
+    left: 44px;
+    gap: 0px;
+    opacity: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.test {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    margin: auto;
+    width: 90%;
+    aspect-ratio: 1/1;
+}
+
+.block {
+    background: #FF7F23;
+    gap: 0px;
+    border: 3px solid #222222;
+    margin: 2px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw;
+}
+
+.click {
+    transform: rotateY(180deg);
+    transition-duration: 1s;
+    background-color: #FF7F23;
+    gap: 0px;
+    border: 3px solid #222222;
+    margin: 2px;
+}
