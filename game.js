@@ -4,7 +4,6 @@ const diff = document.querySelector(".difficulty")
 
 const stikers = ['🎉', '🐼', '🖖', '🍕', '🤠', '🤢', '🌈', '❤️', '🔥', '⛄️', '🍆', '🏆', '🍔', '💦', '🌸', '🦁', '👑', '☠️', '😡', '🌴', '🥁', '🎯', '📓', '🎲', ]
 
-const mas = []
 const temp = []
 let chec = []
 let count = 0
@@ -18,23 +17,23 @@ function random_value() {
 
 function coordinate() {
     const result = [];
-    let r = null;
-    r = random_value()
-    result.push(r)
-    temp.push(r)
-    let k = null
-    k = random_value()
-    result.push(k)
+    let one_random_coordinate = null;
+    one_random_coordinate = random_value()
+    result.push(one_random_coordinate)
+    temp.push(one_random_coordinate)
+    let two_random_coordinate = null
+    two_random_coordinate = random_value()
+    result.push(two_random_coordinate)
     return result
 } //присвоение координат для карты
 
-function rotate(elem, e) {
-    if (!elem.classList.contains('click')) {
-        e.element.classList = 'block'
-        elem.classList += ' click'
-        setTimeout(() => { elem.textContent = e.textContent }, 250)
-        chec.push(e)
-        setTimeout(() => { e.element.classList = 'block' }, 500)
+function rotate(elem1, elem2) {
+    if (!elem1.classList.contains('click')) {
+        elem2.element.classList = 'block'
+        elem1.classList += ' click'
+        setTimeout(() => { elem1.textContent = elem2.textContent }, 250)
+        chec.push(elem2)
+        setTimeout(() => { elem2.element.classList = 'block' }, 500)
 
     }
 } //переворот карты
@@ -53,18 +52,18 @@ function create_cart(coordinat, element, bord) {
 } // создание карты
 
 function create_bord() {
-    const ret = new Array(amount_cart).fill(null)
+    const mass_cart = new Array(amount_cart).fill(null)
     diff.remove()
 
     stikers.forEach((element) => {
-        const f = coordinate();
-        temp.push(f[0], f[1])
+        const coord_cart = coordinate();
+        temp.push(coord_cart[0], coord_cart[1])
 
-        create_cart(f[0], element, ret)
-        create_cart(f[1], element, ret)
+        create_cart(coord_cart[0], element, mass_cart)
+        create_cart(coord_cart[1], element, mass_cart)
     })
 
-    ret.forEach((e) => {
+    mass_cart.forEach((e) => {
         main.appendChild(e.element)
         e.element.addEventListener('click', (t) => {
             rotate(t.target, e)
@@ -106,7 +105,7 @@ diffButton.forEach((e) => {
                     break;
 
                 default:
-                    console.log('err')
+                    console.error()
                     break;
             }
 
