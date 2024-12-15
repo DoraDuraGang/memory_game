@@ -39,3 +39,15 @@ h1 {
     border: 3px solid #222222;
     margin: 2px;
 }
+
+.difficulty{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.button-d{
+    display: flex;
+    justify-content: center;
+    border: 2px solid #222222;
+    margin: 30px;
+}
